@@ -5,7 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:contactsApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" Background="Yellow">
+
+    <Window.DataContext>
+        <local:AppViewModel/>
+    </Window.DataContext>
+    
     <DockPanel>
 
         <Grid DockPanel.Dock="Top" Height="40" Background="{StaticResource BlueGreyGradient}">
@@ -54,7 +59,7 @@
         </Grid>
 
         <Grid DockPanel.Dock="Bottom">
-            <ContentControl Content="" />
+            <ContentControl Content="{Binding CurrentView}" />
         </Grid>
     </DockPanel>
 </Window>

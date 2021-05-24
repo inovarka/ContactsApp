@@ -2,7 +2,6 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-
 namespace contactsApp.Utility
 {
     public class ObservableObject : INotifyPropertyChanged
