@@ -41,6 +41,21 @@
             <GradientStop Color ="#FF8798AA" Offset="1.0"/>
         </LinearGradientBrush>
 
+        <Style x:Key="MenuTabButton" TargetType="Button">
+            <Setter Property="Background" Value="{StaticResource BlueGreyGradient}"/>
+            <Setter Property="Foreground" Value="{StaticResource Innuendo}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource BlueHorizon}"/>
+            <Setter Property="BorderThickness" Value="0,0,1,0"/>
+            <Setter Property="FontSize" Value="16"/>
+        </Style>
+
+        <Style x:Key="MenuIconButton" TargetType="Button">
+            <Setter Property="Background" Value="{StaticResource BlueGreyGradient}"/>
+            <Setter Property="Foreground" Value="{StaticResource MaximumBlueGreen}"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="BorderThickness" Value="0,0,0,0"/>
+        </Style>
+
 
     </Application.Resources>
 </Application>
