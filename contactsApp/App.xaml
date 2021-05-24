@@ -4,6 +4,43 @@
              xmlns:local="clr-namespace:contactsApp"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <!--Brushes https://flatuicolors.com/palette/de-->
+        <SolidColorBrush x:Key="BlueHorizon" Color="#FF4B6584"/>
+        <SolidColorBrush x:Key="BlueGrey" Color="#778ca3"/>
+
+        <SolidColorBrush x:Key="Innuendo" Color="#a5b1c2"/>
+        <SolidColorBrush x:Key="TwinkleBlue" Color="#d1d8e0"/>
+
+        <SolidColorBrush x:Key="GloomyPurple" Color="#8854d0"/>
+        <SolidColorBrush x:Key="LighterPurple" Color="#a55eea"/>
+
+        <SolidColorBrush x:Key="RoyalBlue" Color="#3867d6"/>
+        <SolidColorBrush x:Key="NTSC" Color="#4b7bec"/>
+
+        <SolidColorBrush x:Key="AlgalFuel" Color="#20bf6b"/>
+        <SolidColorBrush x:Key="ReptileGreen" Color="#26de81"/>
+
+        <SolidColorBrush x:Key="TurquioseTopaz" Color="#0fb9b1"/>
+        <SolidColorBrush x:Key="MaximumBlueGreen" Color="#2bcbba"/>
+
+        <SolidColorBrush x:Key="BoyZone" Color="#2d98da"/>
+        <SolidColorBrush x:Key="HighBlue" Color="#45aaf2"/>
+
+        <SolidColorBrush x:Key="AlmostBlack" Color="#FF131313"/>
+
+        <!--GradientBrushes-->
+        <LinearGradientBrush x:Key="BlueGreyGradient" EndPoint="0,1">
+            <GradientStop Color ="#FF486584" Offset="0.0"/>
+            <GradientStop Color ="#FF526889" Offset="0.5"/>
+            <GradientStop Color ="#FF59718F" Offset="1.0"/>
+        </LinearGradientBrush>
+
+        <LinearGradientBrush x:Key="LightBlueGreyGradient" EndPoint="0,1">
+            <GradientStop Color ="#FF778CA3" Offset="0.0"/>
+            <GradientStop Color ="#FF788FA4" Offset="0.5"/>
+            <GradientStop Color ="#FF8798AA" Offset="1.0"/>
+        </LinearGradientBrush>
+
+
     </Application.Resources>
 </Application>
