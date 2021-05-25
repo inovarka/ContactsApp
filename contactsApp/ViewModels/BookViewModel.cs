@@ -25,7 +25,7 @@ namespace contactsApp.ViewModels
 
         public BookViewModel(IContactDataService service)
         {
-            ContactsVM = new ContactsViewModel();
+            ContactsVM = new ContactsViewModel(service);
 
             _service = service;
 

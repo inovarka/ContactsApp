@@ -5,15 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:contactsApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-
+        Title="Contact Book" Height="450" Width="800">
     <Window.DataContext>
         <local:AppViewModel/>
     </Window.DataContext>
-    
     <DockPanel>
-
+        <!-- Tools -->
         <Grid DockPanel.Dock="Top" Height="40" Background="{StaticResource BlueGreyGradient}">
+            <!-- 8 Columns -->
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
@@ -24,39 +23,46 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
+            <!-- Listing Buttons -->
             <Grid Grid.Column="0">
-                <Button Style="{StaticResource MenuTabButton}" Content="Favorites"/>
+                <Button Style="{StaticResource MenuTabButton}" Content="Favorite" 
+                        Command="{Binding BookVM.LoadFavoritesCommand}"/>
             </Grid>
 
             <Grid Grid.Column="1">
-                <Button Style="{StaticResource MenuTabButton}" Content="Contacts" Command="{Binding BookVM.LoadContactsCommand}"/>
+                <Button Style="{StaticResource MenuTabButton}" Content="Contacts" 
+                        Command="{Binding BookVM.LoadContactsCommand}"/>
             </Grid>
 
+            <!-- Tool Buttons-->
             <StackPanel Grid.Column="6" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Right">
 
-                <!-- Add -->
-                <Button Style="{StaticResource MenuIconButton}" Background="{StaticResource BlueGreyGradient}">
+                <!--Add-->
+                <Button Style="{StaticResource MenuIconButton}">
                     <Button.Content>
-                        <Image Height="30" Width="30" Source="pack://siteoforigin:,,,/Resources/addIcon.png" />
+                        <Image Height="30" Width="30" Source="pack://siteoforigin:,,,/Resources/addIcon.png"/>
                     </Button.Content>
                 </Button>
 
-                <!-- Create -->
-                <Button Style="{StaticResource MenuIconButton}" Background="{StaticResource BlueGreyGradient}">
+                <!--Edit -->
+                <Button Style="{StaticResource MenuIconButton}"
+                        Command="{Binding BookVM.ContactsVM.EditCommand}">
                     <Button.Content>
-                        <Image Height="30" Width="30" Source="pack://siteoforigin:,,,/Resources/createIcon.png" />
+                        <Image Height="30" Width="30" Source="pack://siteoforigin:,,,/Resources/createIcon.png"/>
                     </Button.Content>
                 </Button>
 
-                <!-- Remove -->
-                <Button  Style="{StaticResource MenuIconButton}" Background="{StaticResource BlueGreyGradient}">
+                <!--Remove-->
+                <Button Style="{StaticResource MenuIconButton}">
                     <Button.Content>
-                        <Image Height="30" Width="30"  Source="pack://siteoforigin:,,,/Resources/deleteIcon.png" />
+                        <Image Height="30" Width="30" Source="pack://siteoforigin:,,,/Resources/deleteIcon.png"/>
                     </Button.Content>
                 </Button>
             </StackPanel>
+
         </Grid>
 
+        <!-- Content -->
         <Grid DockPanel.Dock="Bottom">
             <ContentControl Content="{Binding CurrentView}" />
         </Grid>

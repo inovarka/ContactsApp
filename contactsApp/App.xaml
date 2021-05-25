@@ -4,6 +4,7 @@
              xmlns:local="clr-namespace:contactsApp"
              xmlns:vm="clr-namespace:contactsApp.ViewModels"
              xmlns:v="clr-namespace:contactsApp.Views"
+             xmlns:helper="clr-namespace:contactsApp.Helpers"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
 
@@ -13,6 +14,8 @@
 
         <BitmapImage x:Key="DefaultContactImage" UriSource="pack://siteoforigin:,,,/Resources/defaultContact.png"/>
 
+        <helper:BoolToVisibilityConverter x:Key="IsEditConverter"/>
+        <helper:NullToVisibilityConverter x:Key="SelectedContactConverter"/>
 
         <!--Brushes https://flatuicolors.com/palette/de-->
         <SolidColorBrush x:Key="BlueHorizon" Color="#FF4B6584"/>
@@ -51,6 +54,7 @@
             <GradientStop Color ="#FF8798AA" Offset="1.0"/>
         </LinearGradientBrush>
 
+        <!-- Controls -->
         <Style x:Key="MenuTabButton" TargetType="Button">
             <Setter Property="Background" Value="{StaticResource BlueGreyGradient}"/>
             <Setter Property="Foreground" Value="{StaticResource Innuendo}"/>
@@ -63,7 +67,7 @@
             <Setter Property="Background" Value="{StaticResource BlueGreyGradient}"/>
             <Setter Property="Foreground" Value="{StaticResource MaximumBlueGreen}"/>
             <Setter Property="Padding" Value="5"/>
-            <Setter Property="BorderThickness" Value="0,0,0,0"/>
+            <Setter Property="BorderThickness" Value="0"/>
         </Style>
 
         <Style x:Key="DetailLabel" TargetType="Label">
@@ -84,6 +88,64 @@
             <Setter Property="Background" Value="{StaticResource LightBlueGreyGradient}"/>
         </Style>
 
+        <Style x:Key="EditBox" TargetType="{x:Type TextBoxBase}">
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="KeyboardNavigation.TabNavigation" Value="None"/>
+            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+            <Setter Property="MinWidth" Value="120"/>
+            <Setter Property="MinHeight" Value="20"/>
+            <Setter Property="AllowDrop" Value="true"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TextBoxBase}">
+                        <Border Name="Border" CornerRadius="3" Padding="2" 
+                                Background="White" 
+                                BorderBrush="{StaticResource BlueHorizon}" 
+                                BorderThickness="1" >
+                            <ScrollViewer Margin="0" x:Name="PART_ContentHost"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter TargetName="Border" Property="Background" Value="#FFa5b1c2"/>
+                                <Setter TargetName="Border" Property="BorderBrush" Value="#FF69717C"/>
+                                <Setter Property="Foreground" Value="#FFd1d8e0"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="favoriteCheckbox" TargetType="{x:Type CheckBox}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type CheckBox}">
+                        <StackPanel Orientation="Horizontal">
+                            <Image x:Name="checkboxImage" Source="pack://siteoforigin:,,,/Resources/uncheckedStar.png" Width="32"/>
+                            <ContentPresenter/>
+                        </StackPanel>
+
+                        <ControlTemplate.Triggers>
+
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter TargetName="checkboxImage" Property="Source" Value="pack://siteoforigin:,,,/Resources/checkedStar.png"/>
+                            </Trigger>
+
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="IsMouseOver" Value="True"/>
+                                    <Condition Property="IsChecked" Value="False"/>
+                                </MultiTrigger.Conditions>
+                                <Setter TargetName="checkboxImage" Property="Source" Value="pack://siteoforigin:,,,/Resources/hoverStar.png"/>
+                            </MultiTrigger>
+
+                        </ControlTemplate.Triggers>
+
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
 
     </Application.Resources>
 </Application>
