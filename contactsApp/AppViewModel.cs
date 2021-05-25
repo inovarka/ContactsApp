@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using contactsApp.Services;
 using contactsApp.Utility;
 using contactsApp.ViewModels;
 
@@ -26,7 +27,9 @@ namespace contactsApp
 
         public AppViewModel()
         {
-            BookVM = new BookViewModel();
+            var dataService = new MockDataService();
+
+            BookVM = new BookViewModel(dataService);
             CurrentView = BookVM;
         }
     }
