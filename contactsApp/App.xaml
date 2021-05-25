@@ -11,6 +11,8 @@
             <v:BookView/>
         </DataTemplate>
 
+        <BitmapImage x:Key="DefaultContactImage" UriSource="pack://siteoforigin:,,,/Resources/defaultContact.png"/>
+
 
         <!--Brushes https://flatuicolors.com/palette/de-->
         <SolidColorBrush x:Key="BlueHorizon" Color="#FF4B6584"/>

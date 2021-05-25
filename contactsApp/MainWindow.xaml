@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:contactsApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" Background="Yellow">
+        Title="MainWindow" Height="450" Width="800">
 
     <Window.DataContext>
         <local:AppViewModel/>
@@ -22,7 +22,6 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
-                <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
             <Grid Grid.Column="0">
@@ -30,7 +29,7 @@
             </Grid>
 
             <Grid Grid.Column="1">
-                <Button Style="{StaticResource MenuTabButton}" Content="Contacts"/>
+                <Button Style="{StaticResource MenuTabButton}" Content="Contacts" Command="{Binding BookVM.LoadContactsCommand}"/>
             </Grid>
 
             <StackPanel Grid.Column="6" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Right">
