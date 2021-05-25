@@ -36,7 +36,6 @@ namespace contactsApp.ViewModels
             get { return !_isEditMode; }
         }
 
-        private List<Contact> _contacts;
         public ObservableCollection<Contact> Contacts { get; private set; }
 
         public ICommand EditCommand { get; private set; }
@@ -53,7 +52,6 @@ namespace contactsApp.ViewModels
         {
             _dataService = dataService;
             _dialogService = dialogService;
-            _contacts = dataService.GetContacts().ToList();
 
             EditCommand = new RelayCommand(Edit, CanEdit);
             SaveCommand = new RelayCommand(Save, IsEdit);
@@ -70,7 +68,6 @@ namespace contactsApp.ViewModels
 
         private void Delete()
         {
-            _contacts.Remove(SelectedContact);
             Contacts.Remove(SelectedContact);
             Save();
         }
@@ -86,7 +83,6 @@ namespace contactsApp.ViewModels
             };
 
             Contacts.Add(newContact);
-            _contacts.Add(newContact);
             SelectedContact = newContact;
         }
 
@@ -98,12 +94,12 @@ namespace contactsApp.ViewModels
 
         private void Update()
         {
-            _dataService.Save(_contacts);
+            _dataService.Save(Contacts);
         }
 
         private void Save()
         {
-            _dataService.Save(_contacts);
+            _dataService.Save(Contacts);
             IsEditMode = false;
             OnPropertyChanged("SelectedContact");
         }
