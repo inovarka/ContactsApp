@@ -12,6 +12,7 @@ namespace contactsApp.ViewModels
     public class BookViewModel : ObservableObject
     {
         private IContactDataService _service;
+        private IDialogService _dialogService;
 
         private ContactsViewModel _contactsVM;
         public ContactsViewModel ContactsVM
@@ -23,9 +24,9 @@ namespace contactsApp.ViewModels
         public ICommand LoadFavoritesCommand { get; private set; }
         public ICommand LoadContactsCommand { get; private set; }
 
-        public BookViewModel(IContactDataService service)
+        public BookViewModel(IContactDataService service, IDialogService dialogService)
         {
-            ContactsVM = new ContactsViewModel(service);
+            ContactsVM = new ContactsViewModel(service, dialogService);
 
             _service = service;
 

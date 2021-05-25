@@ -28,8 +28,9 @@ namespace contactsApp
         public AppViewModel()
         {
             var dataService = new MockDataService();
+            var dialogService = new WindowDialogService();
 
-            BookVM = new BookViewModel(dataService);
+            BookVM = new BookViewModel(dataService,dialogService);
             CurrentView = BookVM;
         }
     }

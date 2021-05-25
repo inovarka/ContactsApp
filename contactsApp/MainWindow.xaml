@@ -38,7 +38,8 @@
             <StackPanel Grid.Column="6" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Right">
 
                 <!--Add-->
-                <Button Style="{StaticResource MenuIconButton}">
+                <Button Style="{StaticResource MenuIconButton}"
+                        Command="{Binding BookVM.ContactsVM.AddCommand}">
                     <Button.Content>
                         <Image Height="30" Width="30" Source="pack://siteoforigin:,,,/Resources/addIcon.png"/>
                     </Button.Content>
@@ -53,7 +54,8 @@
                 </Button>
 
                 <!--Remove-->
-                <Button Style="{StaticResource MenuIconButton}">
+                <Button Style="{StaticResource MenuIconButton}"
+                        Command="{Binding BookVM.ContactsVM.DeleteCommand}">
                     <Button.Content>
                         <Image Height="30" Width="30" Source="pack://siteoforigin:,,,/Resources/deleteIcon.png"/>
                     </Button.Content>
