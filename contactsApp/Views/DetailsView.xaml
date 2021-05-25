@@ -26,12 +26,12 @@
                 <StackPanel Orientation="Horizontal">
                     <StackPanel HorizontalAlignment="Center">
 
-                        <TextBox Text="{Binding SelectedContact.Name, FallbackValue=NULL, Mode=TwoWay}"
+                        <TextBox Text="{Binding SelectedContact.FirstName, FallbackValue=NULL, Mode=TwoWay}"
                                  Visibility="{Binding IsEditMode, Converter={StaticResource IsEditConverter}}"
                                  VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
                                  Margin="5"/>
 
-                        <Label Content="{Binding SelectedContact.Name,FallbackValue=NULL}"
+                        <Label Content="{Binding SelectedContact.FirstName,FallbackValue=NULL}"
                                Visibility="{Binding IsDisplayMode, Converter={StaticResource IsEditConverter}}"
                                HorizontalAlignment="Center"
                                FontSize="24"/>
